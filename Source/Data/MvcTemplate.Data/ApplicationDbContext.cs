@@ -9,13 +9,19 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using OnlineCrystalStore.Data.Models;
-
+    using OnlineCrystalStore.Data.Models;
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public IDbSet<Crystal> Crystals { get; set; }
+
+        public IDbSet<CrystalOrigin> CrystalOrigins { get; set; }
+
+        public IDbSet<CrystalType> CrystalTypes { get; set; }
 
         public static ApplicationDbContext Create()
         {
