@@ -1,6 +1,7 @@
 ﻿namespace OnlineCrystalStore.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
@@ -16,6 +17,10 @@
         {
             this.orders = new HashSet<Order>();
         }
+
+        [Required]
+        [MaxLength(1500)]
+        public string Address { get; set; }
 
         public int? UserAvatarId { get; set; }
 

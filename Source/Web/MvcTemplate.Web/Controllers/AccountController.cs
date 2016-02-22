@@ -1,14 +1,13 @@
 ﻿namespace OnlineCrystalStore.Web.Controllers
 {
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
-
     using OnlineCrystalStore.Data.Models;
     using OnlineCrystalStore.Web.ViewModels.Account;
 
@@ -170,7 +169,29 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    Address = model.Address
+                };
+
+                if (model.UploadedAvatar != null)
+                {
+                    using (var memory = new MemoryStream())
+                    {
+                        model.UploadedAvatar.InputStream.CopyTo(memory);
+                        var content = memory.GetBuffer();
+
+                        user.UserAvatar = new UserAvatar
+                        {
+                            Content = content,
+                            FileExtension = model.UploadedAvatar.FileName.Split(new[] { '.' }).Last()
+                        };
+                    }
+                }
+
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

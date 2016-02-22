@@ -9,6 +9,13 @@
         [Required]
         public decimal Price { get; set; }
 
+        [Required]
+        [MaxLength(50)]
+        public string Size { get; set; }
+
+        [Required]
+        public int Weight { get; set; }
+
         [MaxLength(1000)]
         public string Description { get; set; }
 
