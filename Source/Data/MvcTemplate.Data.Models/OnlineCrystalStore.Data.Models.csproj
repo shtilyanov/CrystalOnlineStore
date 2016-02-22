@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comment.cs" />
     <Compile Include="CrystalPicture.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="User.cs" />

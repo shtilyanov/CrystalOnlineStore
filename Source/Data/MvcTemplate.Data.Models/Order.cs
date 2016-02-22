@@ -1,4 +1,4 @@
-﻿namespace MvcTemplate.Data.Models
+﻿namespace OnlineCrystalStore.Data.Models
 {
     using System.Collections.Generic;
     using OnlineCrystalStore.Data.Common.Models;

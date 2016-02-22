@@ -7,7 +7,14 @@
 
     public class HomeController : BaseController
     {
+        [HttpGet]
         public ActionResult Index()
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        public ActionResult AboutUs()
         {
             return this.View();
         }

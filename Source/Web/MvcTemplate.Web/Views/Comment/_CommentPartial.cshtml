@@ -1,0 +1,21 @@
+﻿@model OnlineCrystalStore.Web.ViewModels.Comment.CommentViewModel
+
+@using (Html.BeginForm("Create", "Comment", new { area = string.Empty }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Post a comment or a new suggestion.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+        @Html.EditorFor(m => m.Title)
+
+        @Html.EditorFor(m => m.Content)
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="PostComment" />
+            </div>
+        </div>
+}
+
+

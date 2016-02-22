@@ -3,12 +3,9 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
-
     using Common.Models;
-
     using Microsoft.AspNet.Identity.EntityFramework;
-
-    using OnlineCrystalStore.Data.Models;
+    using Models;
 
     public class ApplicationDbContext : IdentityDbContext<User>
     {
@@ -22,6 +19,14 @@
         public IDbSet<CrystalOrigin> CrystalOrigins { get; set; }
 
         public IDbSet<CrystalType> CrystalTypes { get; set; }
+
+        public IDbSet<Order> Orders { get; set; }
+
+        public IDbSet<CrystalPicture> CrystalPictures { get; set; }
+
+        public IDbSet<UserAvatar> UserAvatars { get; set; }
+
+        public IDbSet<Comment> Comments { get; set; }
 
         public static ApplicationDbContext Create()
         {
