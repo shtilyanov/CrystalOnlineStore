@@ -1,14 +1,18 @@
 ﻿namespace OnlineCrystalStore.Data.Models
 {
-    using OnlineCrystalStore.Data.Common.Models;
+    using System.ComponentModel.DataAnnotations;
+    using Common.Models;
+    using OnlineCrystalStore.Data.Models;
 
     public class Crystal : BaseModel<int>
     {
+        [Required]
         public decimal Price { get; set; }
 
+        [MaxLength(1000)]
         public string Description { get; set; }
 
-        public byte[] Picture { get; set; }
+        public bool IsSold { get; set; }
 
         public int CrysalTypeId { get; set; }
 
@@ -17,5 +21,9 @@
         public int CrystalOriginId { get; set; }
 
         public virtual CrystalOrigin CristalOrigin { get; set; }
+
+        public int CrystalPictureId { get; set; }
+
+        public virtual CrystalPicture CrystalPicture { get; set; }
     }
 }

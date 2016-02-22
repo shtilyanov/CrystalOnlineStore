@@ -14,7 +14,7 @@
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
-            this.AutomaticMigrationDataLossAllowed = false;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(ApplicationDbContext context)
@@ -31,9 +31,9 @@
                 roleManager.Create(role);
 
                 // Create admin user
-                var userStore = new UserStore<ApplicationUser>(context);
-                var userManager = new UserManager<ApplicationUser>(userStore);
-                var user = new ApplicationUser { UserName = AdministratorUserName, Email = AdministratorUserName };
+                var userStore = new UserStore<User>(context);
+                var userManager = new UserManager<User>(userStore);
+                var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName };
                 userManager.Create(user, AdministratorPassword);
 
                 // Assign user to admin role

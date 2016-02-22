@@ -9,8 +9,8 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using OnlineCrystalStore.Data.Models;
-    using OnlineCrystalStore.Data.Models;
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
