@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     <li>@Html.ActionLink("About Us", "AboutUs", "Home", new { area = string.Empty }, null)</li>
-                    <li>@Html.ActionLink("Comments and Suggestions", "ListComments", "Comment", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Comments", "ListComments", "Comment", new { area = string.Empty }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,8 +33,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - <strong>OnlineCrystalStore</strong>,<strong> Contacts: Email - </strong>@GlobalConstants.ContactEmail <strong>Phone - </strong>@GlobalConstants.ContactPhoneNumber</p>
+        <footer class="text-info row">
+            <p ><span class="col-sm-6">&copy; @DateTime.Now.Year - <strong>OnlineCrystalStore</strong></span><span class="col-sm-6 text-center"><strong>Email - </strong>@GlobalConstants.ContactEmail <strong>&nbsp&nbsp&nbsp&nbspPhone - </strong>@GlobalConstants.ContactPhoneNumber</span></p>
         </footer>
     </div>
 

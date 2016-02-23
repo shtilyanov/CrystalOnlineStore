@@ -6,14 +6,19 @@
 <h2>Latest Commetns</h2>
 <div class="row">
     <div class="col-md-8">
-        <section id="loginForm">
+        <section>
             @foreach (var comment in Model)
             {
-                <div class="row">
-                    <strong>@comment.Title</strong>
-                    <p>@comment.Content</p>
-                    <sub>@comment.Author</sub> <sub>@comment.CreatedOn</sub>
+                <div class="row text-center">
+                    <h3 class="col-md-8">@comment.Title</h3>
                 </div>
+                    <div class="row text-center">
+                        <p class="col-md-8">@comment.Content</p>
+                    </div>
+                    <div class="row text-center">
+                        <sub class="col-md-4"><strong>@comment.Author</strong></sub> <sub class="col-md-4">@comment.CreatedOn</sub>
+                    </div>
+                    <br />
             }
 
         </section>

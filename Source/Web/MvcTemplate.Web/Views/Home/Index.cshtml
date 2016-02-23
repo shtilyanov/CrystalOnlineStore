@@ -1,1 +1,33 @@
-﻿<h1>HI</h1>
+﻿@model IEnumerable<OnlineCrystalStore.Web.ViewModels.Home.IndexViewModel>
+@{
+    ViewBag.Title = "ListComments";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            @foreach (var crystal in Model)
+            {
+                <div class="row text-center">
+                    <h3 class="col-md-8">@crystal.Type</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        @if (crystal.CrystalPictureId != null)
+                        {
+                            <img src="@Url.Action("Image", "Crystal", new { id = crystal.CrystalPictureId.Value })" alt="@crystal.Type" class="img-responsive" />
+                        }
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <h3 class="col-md-8">@crystal.Price</h3>
+                </div>
+                <div class="row text-center">
+                    <p class="col-md-8">@crystal.Description</p>
+                </div>               
+                    <br />
+            }
+
+        </section>
+    </div>
+</div>

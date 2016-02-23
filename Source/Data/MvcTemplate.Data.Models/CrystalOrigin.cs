@@ -2,8 +2,9 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Common.Models;
 
-    public class CrystalOrigin
+    public class CrystalOrigin : BaseModel<int>
     {
         private ICollection<Crystal> crystals;
 
@@ -12,12 +13,9 @@
             this.crystals = new HashSet<Crystal>();
         }
 
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string Region { get; set; }
-
+        // [Required]
+        // [MaxLength(50)]
+        // public string Region { get; set; }
         [MaxLength(100)]
         public string Mine { get; set; }
 

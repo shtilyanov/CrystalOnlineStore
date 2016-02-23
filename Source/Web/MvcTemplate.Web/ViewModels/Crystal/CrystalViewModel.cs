@@ -16,27 +16,33 @@
         public int Id { get; set; }
 
         [Required]
+        [UIHint("Currency")]
         public decimal Price { get; set; }
 
         [Required]
         [MaxLength(50)]
         [Display(Name = "Size of crystal")]
+        [UIHint("SingleLineText")]
         public string Size { get; set; }
 
         [Required]
+        [MaxLength(50)]
         [Display(Name = "Weight of crystal")]
-        public int Weight { get; set; }
+        [UIHint("SingleLineText")]
+        public string Weight { get; set; }
 
         [MaxLength(1000)]
+        [UIHint("MultilineText")]
         public string Description { get; set; }
 
+        // [MaxLength(100)]
+        // public string Region { get; set; }
         [MaxLength(100)]
-        public string Region { get; set; }
-
-        [MaxLength(100)]
+        [UIHint("SingleLineText")]
         public string Mine { get; set; }
 
         [MaxLength(100)]
+        [UIHint("SingleLineText")]
         public string Type { get; set; }
 
         [Display(Name = "Image")]
@@ -45,7 +51,8 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<CrystalOrigin, CrystalViewModel>()
-                .ForMember(x => x.Region, opt => opt.MapFrom(x => x.Region))
+
+                // .ForMember(x => x.Region, opt => opt.MapFrom(x => x.Region))
                 .ForMember(x => x.Mine, opt => opt.MapFrom(x => x.Mine));
 
             configuration.CreateMap<CrystalType, CrystalViewModel>()

@@ -6,10 +6,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public abstract class Image
+    public abstract class Image : BaseModel<int>
     {
-        public int Id { get; set; }
-
         public byte[] Content { get; set; }
 
         public string FileExtension { get; set; }

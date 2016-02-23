@@ -11,6 +11,8 @@
 
     public class CommentViewModel : IMapFrom<Data.Models.Comment>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(50)]
         [UIHint("SingleLineText")]

@@ -4,7 +4,7 @@
 {
     @Html.AntiForgeryToken()
     <h4>Post a comment or a new suggestion.</h4>
-        <hr />
+    <hr />
         @Html.ValidationSummary("", new { @class = "text-danger" })
 
         @Html.EditorFor(m => m.Title)
@@ -13,9 +13,12 @@
         <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default" value="PostComment" />
+                <input type="submit" class="btn btn-default" value="Post Comment" />
             </div>
         </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
 

@@ -25,7 +25,7 @@
         [HttpGet]
         public ActionResult ListComments()
         {
-            var allComments = this.comments.All().OrderBy(x => x.CreatedOn)
+            var allComments = this.comments.All().OrderByDescending(x => x.CreatedOn)
                 .To<CommentViewModel>();
             return this.View(allComments);
         }
