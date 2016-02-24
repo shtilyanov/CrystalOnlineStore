@@ -19,6 +19,8 @@
         </div>
     </div>
 
+    @Html.EditorFor(m => m.Name)
+
     @Html.EditorFor(m => m.Size)
 
     @Html.EditorFor(m => m.Weight)
@@ -26,8 +28,6 @@
     @Html.EditorFor(m => m.Description)
 
     @Html.EditorFor(m => m.Mine)
-
-    @Html.EditorFor(m => m.Type)
 
     <div class="form-group">
         @Html.LabelFor(m => m.UploadedCrystalImage, new { @class = "col-md-2 control-label" })

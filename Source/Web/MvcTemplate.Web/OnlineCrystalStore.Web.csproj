@@ -210,6 +210,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\PagebleCommentListController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +225,7 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Comment\CommentViewModel.cs" />
+    <Compile Include="ViewModels\Crystal\CrystalDetailsViewModel.cs" />
     <Compile Include="ViewModels\Crystal\CrystalViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
@@ -235,6 +238,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\PagebleCommentList\PagebleCommentListViewModel.cs" />
+    <Compile Include="ViewModels\PagebleCommentList\PagebleCommentViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCart\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -386,6 +392,10 @@
     <Content Include="Views\Comment\_CommentPartial.cshtml" />
     <Content Include="Views\Comment\ListComments.cshtml" />
     <Content Include="Views\Crystal\Add.cshtml" />
+    <Content Include="Views\Crystal\Details.cshtml" />
+    <Content Include="Views\ShoppingCart\ListItems.cshtml" />
+    <Content Include="Views\PagebleCommentList\Index.cshtml" />
+    <Content Include="Views\PagebleCommentList\_CommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

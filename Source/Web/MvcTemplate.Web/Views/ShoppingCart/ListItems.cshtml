@@ -1,0 +1,58 @@
+﻿@model OnlineCrystalStore.Web.ViewModels.ShoppingCart.ShoppingCartViewModel
+@{
+    ViewBag.Title = "ListItems";
+}
+
+<h2>Shopping Cart<span class="glyphicon glyphicon-shopping-cart"></span></h2>
+
+<div id="example">
+    <table id="grid">
+        <colgroup>
+            <col style="width:110px" />
+            <col style="width:120px" />
+            <col style="width:130px" />
+            <col style="width:130px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th data-field="Item Id">Id</th>
+                <th data-field="Item Name">Name</th>
+                <th data-field="Item Price">Price</th>
+                <th data-field="category">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{decimal totalPrice = 0;
+
+            foreach (var item in Model.Crystals)
+            {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>$@item.Price</td>
+                        <td><a href="/ShoppingCart/RemoveItem/@item.Id", class="btn btn-danger">Remove</a></td>
+                        <td class="hidden">@(totalPrice += item.Price)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td>Total Price: </td>
+                <td><strong>$@totalPrice</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $("#grid").kendoGrid({
+            height: 350,
+            sortable: true
+        });
+    });
+</script>
+    }
+

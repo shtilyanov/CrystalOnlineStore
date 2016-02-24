@@ -1,8 +1,7 @@
-﻿namespace OnlineCrystalStore.Web.ViewModels.Home
+﻿namespace OnlineCrystalStore.Web.ViewModels.Crystal
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -10,7 +9,7 @@
     using OnlineCrystalStore.Data.Models;
     using OnlineCrystalStore.Web.Infrastructure.Mapping;
 
-    public class IndexViewModel : IMapFrom<Crystal>, IHaveCustomMappings
+    public class CrystalDetailsViewModel : IMapFrom<Crystal>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -22,11 +21,15 @@
 
         public string Mine { get; set; }
 
+        public string Size { get; set; }
+
+        public string Weight { get; set; }
+
         public int? CrystalPictureId { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Crystal, IndexViewModel>()
+            configuration.CreateMap<Crystal, CrystalDetailsViewModel>()
         .ForMember(x => x.Mine, opt => opt.MapFrom(x => x.CristalOrigin.Mine));
         }
     }

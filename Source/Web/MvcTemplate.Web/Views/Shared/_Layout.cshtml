@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/ico" href="~/favicon.ico">
     @Styles.Render("~/Content/css", "~/Content/kendo")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/kendo")
 </head>
 <body>
@@ -24,7 +25,11 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     <li>@Html.ActionLink("About Us", "AboutUs", "Home", new { area = string.Empty }, null)</li>
-                    <li>@Html.ActionLink("Comments", "ListComments", "Comment", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Comments", "Index", "PagebleCommentList", new { area = string.Empty }, null)</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Shopping Cart", "ListItems", "ShoppingCart", new { area = string.Empty }, null)</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -37,8 +42,6 @@
             <p ><span class="col-sm-6">&copy; @DateTime.Now.Year - <strong>OnlineCrystalStore</strong></span><span class="col-sm-6 text-center"><strong>Email - </strong>@GlobalConstants.ContactEmail <strong>&nbsp&nbsp&nbsp&nbspPhone - </strong>@GlobalConstants.ContactPhoneNumber</span></p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

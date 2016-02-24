@@ -19,6 +19,10 @@
         [UIHint("Currency")]
         public decimal Price { get; set; }
 
+        [MaxLength(100)]
+        [UIHint("SingleLineText")]
+        public string Name { get; set; }
+
         [Required]
         [MaxLength(50)]
         [Display(Name = "Size of crystal")]
@@ -35,15 +39,9 @@
         [UIHint("MultilineText")]
         public string Description { get; set; }
 
-        // [MaxLength(100)]
-        // public string Region { get; set; }
         [MaxLength(100)]
         [UIHint("SingleLineText")]
         public string Mine { get; set; }
-
-        [MaxLength(100)]
-        [UIHint("SingleLineText")]
-        public string Type { get; set; }
 
         [Display(Name = "Image")]
         public HttpPostedFileBase UploadedCrystalImage { get; set; }
@@ -51,12 +49,7 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<CrystalOrigin, CrystalViewModel>()
-
-                // .ForMember(x => x.Region, opt => opt.MapFrom(x => x.Region))
                 .ForMember(x => x.Mine, opt => opt.MapFrom(x => x.Mine));
-
-            configuration.CreateMap<CrystalType, CrystalViewModel>()
-                .ForMember(x => x.Type, opt => opt.MapFrom(x => x.Name));
         }
     }
 }

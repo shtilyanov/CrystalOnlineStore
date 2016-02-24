@@ -7,6 +7,10 @@
     public class Crystal : BaseModel<int>
     {
         [Required]
+        [MaxLength(100)]
+        public string Name { get; set; }
+
+        [Required]
         public decimal Price { get; set; }
 
         [Required]
@@ -21,10 +25,6 @@
         public string Description { get; set; }
 
         public bool IsSold { get; set; }
-
-        public int? CrysalTypeId { get; set; }
-
-        public virtual CrystalType CrystalType { get; set; }
 
         public int? CrystalOriginId { get; set; }
 

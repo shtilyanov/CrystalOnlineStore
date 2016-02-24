@@ -2,11 +2,11 @@
 {
     using System.Linq;
     using System.Web.Mvc;
-
-    using Infrastructure.Mapping;
-    using Data.Models;
     using Data.Common;
+    using Data.Models;
+    using Infrastructure.Mapping;
     using ViewModels.Home;
+
     public class HomeController : BaseController
     {
         private IDbRepository<Crystal> crystals;
@@ -19,8 +19,8 @@
         [HttpGet]
         public ActionResult Index()
         {
-            var allCrystals = this.crystals.All().OrderBy(x => x.Price)
-                .To<IndexViewModel>();
+            var allCrystals = this.crystals.All().Where(x => x.IsSold == false).OrderBy(x => x.Price)
+                .To<IndexViewModel>().ToList();
 
             return this.View(allCrystals);
         }

@@ -6,13 +6,6 @@
 
     public class Order : BaseModel<int>
     {
-        private ICollection<Crystal> crystals;
-
-        public Order()
-        {
-            this.crystals = new HashSet<Crystal>();
-        }
-
         public string BuyerId { get; set; }
 
         public User Buyer { get; set; }
@@ -20,11 +13,5 @@
         public bool IsSent { get; set; }
 
         public bool IsDelivered { get; set; }
-
-        public virtual ICollection<Crystal> Crystals
-        {
-            get { return this.crystals; }
-            set { this.crystals = value; }
-        }
     }
 }

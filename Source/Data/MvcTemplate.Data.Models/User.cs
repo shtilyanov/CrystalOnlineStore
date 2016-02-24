@@ -18,7 +18,7 @@
             this.orders = new HashSet<Order>();
         }
 
-        [Required]
+        // [Required]
         [MaxLength(1500)]
         public string Address { get; set; }
 

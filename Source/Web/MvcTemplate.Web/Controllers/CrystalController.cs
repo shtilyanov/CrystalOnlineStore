@@ -1,34 +1,27 @@
 ﻿namespace OnlineCrystalStore.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-    using OnlineCrystalStore.Data.Common;
-    using OnlineCrystalStore.Data.Models;
-    using OnlineCrystalStore.Web.Controllers;
+    using Data.Common;
+    using Data.Models;
+    using Infrastructure.Mapping;
     using ViewModels.Crystal;
 
     public class CrystalController : BaseController
     {
         private IDbRepository<Crystal> crystals;
         private IDbRepository<CrystalOrigin> origins;
-        private IDbRepository<CrystalType> types;
         private IDbRepository<CrystalPicture> pictures;
 
         public CrystalController(
                             IDbRepository<Crystal> crystals,
                             IDbRepository<CrystalOrigin> origins,
-                            IDbRepository<CrystalType> types,
                             IDbRepository<CrystalPicture> pictures)
         {
             this.crystals = crystals;
             this.origins = origins;
-            this.types = types;
             this.pictures = pictures;
         }
 
@@ -49,28 +42,12 @@
 
             var crystal = new Crystal()
             {
+                Name = model.Name,
                 Price = model.Price,
                 Size = model.Size,
                 Weight = model.Weight,
                 Description = model.Description,
             };
-
-            var inputType = this.types.All().FirstOrDefault(x => x.Name == model.Type);
-
-            if (inputType == null)
-            {
-                var newType = new CrystalType()
-                {
-                    Name = model.Type
-                };
-                this.types.Add(newType);
-                this.types.Save();
-                crystal.CrysalTypeId = newType.Id;
-            }
-            else
-            {
-                crystal.CrysalTypeId = inputType.Id;
-            }
 
             var inputOrigin = this.origins.All().FirstOrDefault(x => x.Mine == model.Mine);
 
@@ -109,6 +86,16 @@
             return this.Redirect("/");
         }
 
+        [HttpGet]
+        public ActionResult Details(int id = 1)
+        {
+            var crystalById = this.crystals.All().Where(x => x.Id == id)
+            .To<CrystalDetailsViewModel>().ToList();
+
+            return this.View(crystalById[0]);
+        }
+
+        [HttpGet]
         public ActionResult Image(int id)
         {
             var image = this.pictures.GetById(id);

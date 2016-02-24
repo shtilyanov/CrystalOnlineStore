@@ -26,7 +26,7 @@
         public ActionResult ListComments()
         {
             var allComments = this.comments.All().OrderByDescending(x => x.CreatedOn)
-                .To<CommentViewModel>();
+                .To<CommentViewModel>().ToList();
             return this.View(allComments);
         }
 

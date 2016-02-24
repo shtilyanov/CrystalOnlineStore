@@ -13,9 +13,6 @@
             this.crystals = new HashSet<Crystal>();
         }
 
-        // [Required]
-        // [MaxLength(50)]
-        // public string Region { get; set; }
         [MaxLength(100)]
         public string Mine { get; set; }
 

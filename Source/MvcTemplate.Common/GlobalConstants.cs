@@ -1,6 +1,6 @@
 ﻿namespace OnlineCrystalStore.Common
 {
-    public static class GlobalConstants
+    public class GlobalConstants
     {
         public const string AdministratorRoleName = "Administrator";
 

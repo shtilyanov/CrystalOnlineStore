@@ -1,24 +1,25 @@
 ﻿namespace OnlineCrystalStore.Data.Models
 {
+    using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using Common.Models;
 
-    public class CrystalType : BaseModel<int>
+    public class ShoppingCart : BaseModel<int>
     {
         private ICollection<Crystal> crystals;
 
-        public CrystalType()
+        public ShoppingCart()
         {
             this.crystals = new HashSet<Crystal>();
         }
 
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; }
+        public string UserId { get; set; }
 
-        // [MaxLength(1000)]
-        // public string Description { get; set; }
+        public virtual User User { get; set; }
+
         public virtual ICollection<Crystal> Crystals
         {
             get { return this.crystals; }

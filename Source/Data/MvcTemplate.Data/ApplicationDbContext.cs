@@ -18,8 +18,6 @@
 
         public IDbSet<CrystalOrigin> CrystalOrigins { get; set; }
 
-        public IDbSet<CrystalType> CrystalTypes { get; set; }
-
         public IDbSet<Order> Orders { get; set; }
 
         public IDbSet<CrystalPicture> CrystalPictures { get; set; }
@@ -27,6 +25,8 @@
         public IDbSet<UserAvatar> UserAvatars { get; set; }
 
         public IDbSet<Comment> Comments { get; set; }
+
+        public IDbSet<ShoppingCart> ShoppingCarts { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -1,0 +1,90 @@
+﻿@model OnlineCrystalStore.Web.ViewModels.Crystal.CrystalDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    .slide-image {
+        width: 100%;
+    }
+
+    .carousel-holder {
+        margin-bottom: 30px;
+    }
+
+    .carousel-control,
+    .item {
+        border-radius: 4px;
+    }
+
+    .caption {
+        height: 130px;
+        overflow: hidden;
+    }
+
+        .caption h4 {
+            white-space: nowrap;
+        }
+
+    .thumbnail img {
+        width: 100%;
+    }
+
+    .ratings {
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #d17581;
+    }
+
+    .thumbnail {
+        padding: 0;
+    }
+
+        .thumbnail .caption-full {
+            padding: 9px;
+            color: #333;
+        }
+
+    footer {
+        margin: 50px 0;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <br />
+        <div class="col-md-3">
+            @*<p class="lead">Shop Name</p>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Category 1</a>
+                    <a href="#" class="list-group-item">Category 2</a>
+                    <a href="#" class="list-group-item">Category 3</a>
+                </div>*@
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12 col-md-12">
+                    <div class="thumbnail">
+                        @if (Model.CrystalPictureId != null)
+                        {
+                            <img src="@Url.Action("Image", "Crystal", new { id = Model.CrystalPictureId.Value })" alt="@Model.Name" />
+                        }
+                        <div class="caption">
+                            <h4 class="pull-right">$@Model.Price</h4>
+                            <h4>
+                                @Model.Name
+                            </h4>
+                            <p>@Model.Description</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">@Model.Mine</p>
+                            <p>
+                                @Html.ActionLink("Add Item to Cart", "Add", "ShoppingCart", new { id = Model.Id }, null)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
