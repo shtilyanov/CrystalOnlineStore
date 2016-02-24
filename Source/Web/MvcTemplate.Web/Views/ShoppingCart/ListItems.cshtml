@@ -41,6 +41,10 @@
                 <td></td>
                 <td>Total Price: </td>
                 <td><strong>$@totalPrice</strong></td>
+                @if (totalPrice != 0)
+                {
+                    <td><a href="/OrderDetails/Create/@Model.Id" , class="btn btn-success">Order</a></td>
+                }
             </tr>
         </tfoot>
     </table>

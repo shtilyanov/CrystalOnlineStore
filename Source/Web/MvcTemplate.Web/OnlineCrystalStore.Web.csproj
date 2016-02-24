@@ -210,6 +210,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\PagebleCommentListController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +239,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\OrderDetails\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\PagebleCommentList\PagebleCommentListViewModel.cs" />
     <Compile Include="ViewModels\PagebleCommentList\PagebleCommentViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCart\ShoppingCartViewModel.cs" />
@@ -396,6 +398,7 @@
     <Content Include="Views\ShoppingCart\ListItems.cshtml" />
     <Content Include="Views\PagebleCommentList\Index.cshtml" />
     <Content Include="Views\PagebleCommentList\_CommentPartial.cshtml" />
+    <Content Include="Views\OrderDetails\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

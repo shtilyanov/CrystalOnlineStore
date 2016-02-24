@@ -28,6 +28,7 @@
                     <li>@Html.ActionLink("Comments", "Index", "PagebleCommentList", new { area = string.Empty }, null)</li>
                     @if (User.Identity.IsAuthenticated)
                     {
+                        
                         <li>@Html.ActionLink("Shopping Cart", "ListItems", "ShoppingCart", new { area = string.Empty }, null)</li>
                     }
                 </ul>

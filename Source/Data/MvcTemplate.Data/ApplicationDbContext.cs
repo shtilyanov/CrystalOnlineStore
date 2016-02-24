@@ -18,7 +18,7 @@
 
         public IDbSet<CrystalOrigin> CrystalOrigins { get; set; }
 
-        public IDbSet<Order> Orders { get; set; }
+        public IDbSet<OrderDetails> Orders { get; set; }
 
         public IDbSet<CrystalPicture> CrystalPictures { get; set; }
 

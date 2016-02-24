@@ -1,0 +1,33 @@
+﻿@model OnlineCrystalStore.Web.ViewModels.OrderDetails.OrderDetailsViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Order</h2>
+
+@using (Html.BeginForm("Create", "OrderDetails", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    @Html.EditorFor(m => m.Address)
+
+    @Html.EditorFor(m => m.City)
+
+    @Html.EditorFor(m => m.Country)
+
+    @Html.EditorFor(m => m.PaymentMethod)
+
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

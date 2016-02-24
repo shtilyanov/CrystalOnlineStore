@@ -61,7 +61,8 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="CrystalPicture.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="OrderDetails.cs" />
+    <Compile Include="PaymentMethodType.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Crystal.cs" />
