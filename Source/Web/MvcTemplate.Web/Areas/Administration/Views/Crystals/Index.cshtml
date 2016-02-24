@@ -1,0 +1,34 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<OnlineCrystalStore.Web.Areas.Administration.ViewModels.CrystalVewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.Price);
+        columns.Bound(c => c.Size);
+        columns.Bound(c => c.Weight);
+        columns.Bound(c => c.Description);
+
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+            toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Crystals_Read", "Crystals"))
+          .Create(create => create.Action("Crystals_Create", "Crystals"))
+          .Update(update => update.Action("Crystals_Update", "Crystals"))
+          .Destroy(destroy => destroy.Action("Crystals_Destroy", "Crystals"))
+      )
+)

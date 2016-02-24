@@ -1,0 +1,11 @@
+﻿@model OnlineCrystalStore.Web.Areas.Administration.ViewModels.CrystalVewModel
+
+@Html.ValidationSummary("", new { @class = "text-danger" })
+
+@Html.EditorFor(m => m.Name)
+
+@Html.EditorFor(m => m.Price)
+
+@Html.EditorFor(m => m.Size)
+
+@Html.EditorFor(m => m.Weight)

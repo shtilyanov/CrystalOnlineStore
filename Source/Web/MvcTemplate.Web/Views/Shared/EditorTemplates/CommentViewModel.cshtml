@@ -1,0 +1,8 @@
+﻿@model OnlineCrystalStore.Web.Areas.Administration.ViewModels.CommentViewModel
+
+@Html.ValidationSummary("", new { @class = "text-danger" })
+
+@Html.EditorFor(m => m.Title)
+
+@Html.EditorFor(m => m.Content)
+

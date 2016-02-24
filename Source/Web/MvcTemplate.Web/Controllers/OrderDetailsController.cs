@@ -59,7 +59,6 @@
             this.orders.Add(newOrder);
             this.orders.Save();
 
-
             foreach (var item in currentShoppingCart.Crystals)
             {
                 this.crystals.Delete(item);

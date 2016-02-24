@@ -28,8 +28,18 @@
                     <li>@Html.ActionLink("Comments", "Index", "PagebleCommentList", new { area = string.Empty }, null)</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        
-                        <li>@Html.ActionLink("Shopping Cart", "ListItems", "ShoppingCart", new { area = string.Empty }, null)</li>
+
+                        <li>@Html.ActionLink("Cart", "ListItems", "ShoppingCart", new { area = string.Empty }, null)</li>
+                        if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li>
+                                <span class="text-center text-warning">Administration</span>
+                            </li>
+                            <li>@Html.ActionLink("Comments", "Index", "Comments", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Orders", "Index", "Order", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Items", "Index", "Crystals", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Add Item", "Add", "Crystal", new { area = string.Empty }, null)</li>
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -40,7 +50,7 @@
         @RenderBody()
         <hr />
         <footer class="text-info row">
-            <p ><span class="col-sm-6">&copy; @DateTime.Now.Year - <strong>OnlineCrystalStore</strong></span><span class="col-sm-6 text-center"><strong>Email - </strong>@GlobalConstants.ContactEmail <strong>&nbsp&nbsp&nbsp&nbspPhone - </strong>@GlobalConstants.ContactPhoneNumber</span></p>
+            <p><span class="col-sm-6">&copy; @DateTime.Now.Year - <strong>OnlineCrystalStore</strong></span><span class="col-sm-6 text-center"><strong>Email - </strong>@GlobalConstants.ContactEmail <strong>&nbsp&nbsp&nbsp&nbspPhone - </strong>@GlobalConstants.ContactPhoneNumber</span></p>
         </footer>
     </div>
     @RenderSection("scripts", required: false)

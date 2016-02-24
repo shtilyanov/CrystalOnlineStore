@@ -1,0 +1,39 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<OnlineCrystalStore.Web.Areas.Administration.ViewModels.OrderViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id);
+          columns.Bound(c => c.ShoppingCartId);
+          columns.Bound(c => c.Buyer);
+          columns.Bound(c => c.Address);
+          columns.Bound(c => c.City);
+          columns.Bound(c => c.Country);
+          columns.Bound(c => c.PaymentMethod);
+          columns.Bound(c => c.CreatedOn);
+          columns.Bound(c => c.ModifiedOn);
+          columns.Bound(c => c.IsDeleted);
+          columns.Bound(c => c.DeletedOn);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+          toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("OrderDetails_Read", "Order"))
+          .Create(create => create.Action("OrderDetails_Create", "Order"))
+          .Update(update => update.Action("OrderDetails_Update", "Order"))
+          .Destroy(destroy => destroy.Action("OrderDetails_Destroy", "Order"))
+      )
+)

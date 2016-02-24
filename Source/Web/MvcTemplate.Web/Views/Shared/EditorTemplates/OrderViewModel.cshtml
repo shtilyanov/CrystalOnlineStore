@@ -1,0 +1,12 @@
+﻿@model OnlineCrystalStore.Web.Areas.Administration.ViewModels.OrderViewModel
+
+@Html.ValidationSummary("", new { @class = "text-danger" })
+
+@Html.EditorFor(m => m.Address)
+
+@Html.EditorFor(m => m.City)
+
+@Html.EditorFor(m => m.Country)
+
+
+

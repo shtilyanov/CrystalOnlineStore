@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using Common;
     using Data.Common;
     using Data.Models;
     using Infrastructure.Mapping;
@@ -31,6 +32,7 @@
             return this.View();
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Add(CrystalViewModel model)
