@@ -27,7 +27,7 @@
         public ActionResult Index(int id = 1)
         {
             var page = id;
-            if (this.HttpContext.Cache[$"feedback{page}"] != null)
+            if (this.HttpContext.Cache[$"comment{page}"] != null)
             {
                 var viewModel = (PagebleCommentListViewModel)this.HttpContext.Cache[$"comment{page}"];
                 return this.View(viewModel);

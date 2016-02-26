@@ -13,9 +13,11 @@ using OnlineCrystalStore.Data;
 using OnlineCrystalStore.Data.Common;
 using OnlineCrystalStore.Web.Areas.Administration.ViewModels;
 using OnlineCrystalStore.Web.Infrastructure.Mapping;
+using OnlineCrystalStore.Common;
 
 namespace OnlineCrystalStore.Web.Areas.Administration.Controllers
 {
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class CrystalsController : Controller
     {
         private IDbRepository<Crystal> crystals;

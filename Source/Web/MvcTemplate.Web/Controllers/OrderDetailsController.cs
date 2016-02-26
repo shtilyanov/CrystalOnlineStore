@@ -12,6 +12,7 @@
     using OnlineCrystalStore.Web.Controllers;
     using ViewModels.OrderDetails;
 
+    [Authorize]
     public class OrderDetailsController : BaseController
     {
         private IDbRepository<OrderDetails> orders;
